@@ -26,3 +26,14 @@ otro_guerrero = guerrero.clone #clone es un metodo que ya viene definido en Ruby
 guerrero.atacar_a otro_guerrero
 
 puts otro_guerrero.energia
+
+espadachin = PrototypedObject.new
+espadachin.set_prototype(guerrero)
+espadachin.set_property(:habilidad, 0.5)
+espadachin.set_property(:potencial_espada, 30)
+
+guerrero.set_method(:sanar, proc {
+  self.energia = self.energia + 10
+})
+espadachin.sanar
+puts espadachin.energia
