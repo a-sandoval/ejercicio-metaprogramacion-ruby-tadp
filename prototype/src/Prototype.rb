@@ -13,6 +13,10 @@ module Prototype
     self.send("#{attribute}=", value)
   end
   def set_method(name, method)
+    self.class.define_method(name, &method)
+  end
+
+  def set_method2(name, method)
     define_singleton_method(name, &method)
   end
 end
